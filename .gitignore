@@ -6,3 +6,8 @@ logs
 
 *.DS_Store
 test-output
+
+testdata/assetInfoValidation/*.properties
+
+listener/kickStart
+listener/openTerminal.sh
