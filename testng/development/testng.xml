@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<suite name="Sanity Suite">
+
+  <listeners>
+	<listener class-name="com.ibm.mega.test.framework.TestNGReportGenerator" />
+	<listener class-name="com.ibm.mega.test.framework.TestCaseListener" />
+  </listeners>
+
+<!-- Replace <ENVIRONMENT_PROPERTIES_FOLDER> with the environment properties folder corresponding to  the 
+	environment to be used for the test execution -->
+	
+  <parameter name="suiteEnv" value="Jason" />
+  <parameter name="suiteDesc" value="Enter your description of the suite here, e.g IQ2 2.90 regression"/>
+  
+<!-- included parallel="classes" causes the tests to run at the same time, it is only supported
+	for a test suite that does not contain an install or configuration test -->
+  <test name="Jason">
+  
+    <classes>
+    <!--
+		<class name="com.ibm.mega.test.platform.STO_44777_CEDeviceSummaryView" />
+		<class name="com.ibm.mega.test.platform.STO_44775_MEGDeviceView" />
+		<class name="com.ibm.mega.test.platform.STO_49145_CEDeviceEGView" /> 
+		
+		<class name="com.ibm.mega.test.gateway.STO_44779_VerifyGatewayWatch" />
+		<class name="com.ibm.mega.test.gateway.STO_49147_VerifyGatewayWebService" />
+		<class name="com.ibm.mega.test.gateway.STO_44781_VerifyGatewayPropFile" />
+		
+		
+		<class name="com.ibm.mega.test.platform.STO_52014_VerifyWFSSource" />
+	
+		<class name="com.ibm.mega.test.platform.STO_52014_VerifyWFSSource" />
+		<class name="com.ibm.mega.test.platform.STO_52015_VerifySPSource" />
+		
+		<class name="com.ibm.mega.test.gateway.ReConfigureGatewayTestNG" />
+		<class name="com.ibm.mega.test.install.CEReInstallTestNG" />
+		
+		<class name="com.ibm.mega.test.gateway.STO_44782_ChangeGwyAuthTTL" />
+	-->
+	
+		<class name="com.ibm.mega.test.gateway.STO_44781_VerifyGatewayPropFile" />
+    
+    </classes>
+	
+  </test> 
+  
+  
+  
+
+</suite>  
+
+
+

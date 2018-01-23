@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<suite name="Webdav Suite" configfailurepolicy="continue">
+
+  <listeners>
+	<listener class-name="com.ibm.mega.test.framework.TestNGReportGenerator" />
+	<listener class-name="com.ibm.mega.test.framework.TestCaseListener" />
+	<listener class-name="com.ibm.mega.test.framework.TestMethodRetryListener" />
+  </listeners>
+	
+  <parameter name="suiteEnv" value="ENVIRONMENT_PROPERTIES_FOLDER" />
+  <parameter name="suiteDesc" value="Enter your description of the suite here, e.g IQ2 2.90 regression"/>
+  <parameter name="uploadReport" value="true" />
+  <parameter name="confirmBeforeUpload" value="true" />
+  
+  <test name="Confidence" >
+	
+    <classes>
+		<class name="com.ibm.mega.test.wfs.STO_65479_WebDavAction_DELETE" />
+		<class name="com.ibm.mega.test.wfs.STO_65481_WebDavAction_CREATE_FOLDER" />
+		<class name="com.ibm.mega.test.wfs.STO_65964_WebDavAction_GET" />
+		<class name="com.ibm.mega.test.wfs.STO_65993_WebDavAction_PUT" />
+		<class name="com.ibm.mega.test.wfs.STO_65997_WebDavAction_MOVE" />
+		<class name="com.ibm.mega.test.wfs.STO_66192_WebDavAction_LIST_FOLDERS_AND_FILES" />              
+		<class name="com.ibm.mega.test.wfs.STO_67850_WebDavAction_HIDDEN" />
+		<class name="com.ibm.mega.test.wfs.STO_66965_WebDAV_RemoteFolder_SMB1" />
+		
+		
+		<class name="com.ibm.mega.test.wfs.STO_71152_WebDavAction_DELETE_SMB2" />
+		<class name="com.ibm.mega.test.wfs.STO_71153_WebDavAction_CREATE_FOLDER_SMB2" />
+		<class name="com.ibm.mega.test.wfs.STO_71154_WebDavAction_GET_SMB2" />
+		<class name="com.ibm.mega.test.wfs.STO_71155_WebDavAction_PUT_SMB2" />
+		<class name="com.ibm.mega.test.wfs.STO_71156_WebDavAction_MOVE_SMB2" />
+		<class name="com.ibm.mega.test.wfs.STO_71157_WebDavAction_LIST_FOLDERS_AND_FILES_SMB2" />              
+		<class name="com.ibm.mega.test.wfs.STO_71158_WebDavAction_HIDDEN_SMB2" />
+		<class name="com.ibm.mega.test.wfs.STO_71159_WebDAV_RemoteFolder_SMB2" />
+		
+		<!-- 
+		<class name="com.ibm.mega.test.wfs.STO_66925_WebDav_LargeFile_DLUP" />
+		 -->
+		
+    </classes>
+	
+  </test> 
+  
+  
+
+  
+
+</suite>  
+
+
+

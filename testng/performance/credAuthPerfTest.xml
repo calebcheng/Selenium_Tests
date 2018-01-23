@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<suite name="Credential Auth Performance Suite">
+
+  <listeners>
+	<listener class-name="com.ibm.mega.test.framework.TestNGReportGenerator" />
+	<listener class-name="com.ibm.mega.test.framework.TestCaseListener" />
+  </listeners>
+	
+  <parameter name="suiteEnv" value="Jason" />
+  
+  <!-- Different to other tests -->
+  <parameter name="username" value="gc1f30" />
+  <parameter name="password" value="admin@123" />
+  <parameter name="domain" value="forest30" />
+  <parameter name="csn" value="androidcert1701171143291" />
+  <parameter name="secKey" value="YK0mh1ajJu" />
+  
+  <test name="Cred Auth Performance AD" >
+	
+    <classes>
+	<!--
+		<class name="com.ibm.mega.test.gateway.ConfigureADTestNG" />
+	-->
+		<class name="com.ibm.mega.test.performance.CredAuthTime" />
+    </classes>
+	
+  </test> 
+  
+  <test name="Cred Auth Performance LDAP" >
+	
+    <classes>
+	<!--
+		<class name="com.ibm.mega.test.gateway.ConfigureLDAPTestNG" />
+-->	
+	<class name="com.ibm.mega.test.performance.CredAuthTime" />
+    </classes>
+	
+  </test> 
+ 
+</suite>  
+
+
+

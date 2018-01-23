@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<suite name="Install and Configure Suite">
+
+  <listeners>
+	<listener class-name="com.ibm.mega.test.framework.TestNGReportGenerator" />
+	<listener class-name="com.ibm.mega.test.framework.TestCaseListener" />
+	<listener class-name="com.ibm.mega.test.framework.TestMethodRetryListener" />
+  </listeners>
+	
+  <parameter name="suiteEnv" value="ENVIRONMENT_PROPERTIES_FOLDER" />
+  <parameter name="suiteDesc" value="Enter your description of the suite here, e.g IQ2 2.90 regression"/>
+	<parameter name="uploadReport" value="false" />
+	<parameter name="confirmBeforeUpload" value="false" />
+  
+  <test name="Install Configure">
+  
+    <classes>
+		
+		<class name="com.ibm.mega.test.install.CEReInstallTestNG" />
+		<!--
+		 The following gateway configuration test case is the default one; 
+		 to select a different gateway configuration, copy the desired test case name from
+		 the <GatewayConfigList> list below over the default one 
+		-->
+		<class name="com.ibm.mega.test.gateway.regressionScenarios.STO_19042_Cfg_Stand_AD_Relay" />
+		
+		
+		<!-- 	    
+			<class name="com.ibm.mega.test.gateway.regressionScenarios.STO_19042_Cfg_Stand_AD_Relay" />
+			<class name="com.ibm.mega.test.gateway.regressionScenarios.STO_21372_Cfg_Stand_LDAP_Relay" />
+			<class name="com.ibm.mega.test.gateway.regressionScenarios.STO_66231_Cfg_Stand_AD_DirGwyURL" />
+			<class name="com.ibm.mega.test.gateway.regressionScenarios.STO_19038_Cfg_Stand_AD_DirSSLTerm" />
+			<class name="com.ibm.mega.test.gateway.regressionScenarios.STO_19032_Cfg_Stand_LDAP_DirSSLBridging" />
+			<class name="com.ibm.mega.test.gateway.regressionScenarios.STO_62713_Cfg_Stand_LDAP_DirGwyURL" />
+			<class name="com.ibm.mega.test.gateway.regressionScenarios.STO_65015_Cfg_Stand_AD_DirSSLPassthru" />
+			<class name="com.ibm.mega.test.gateway.regressionScenarios.STO_21370_Cfg_HANew_AD_Relay" />
+			<class name="com.ibm.mega.test.gateway.regressionScenarios.STO_21371_Cfg_HANew_AD_DirSSLBridging" />
+			<class name="com.ibm.mega.test.gateway.regressionScenarios.STO_62712_Cfg_HANew_LDAP_Relay" />
+			<class name="com.ibm.mega.test.gateway.regressionScenarios.STO_65036_Cfg_HANew_LDAP_DirSSLTerm" />
+			<class name="com.ibm.mega.test.gateway.regressionScenarios.STO_65037_Cfg_HANew_AD_DirGwyURL" />
+			<class name="com.ibm.mega.test.gateway.regressionScenarios.STO_65038_Cfg_HANew_LDAP_DirSSLPassthru" />
+		-->
+	
+		
+		
+		<class name="com.ibm.mega.test.platform.DocsContentSourcesAddSpTestNG" />
+		<class name="com.ibm.mega.test.platform.DocsContentSourcesAddWfsTestNG" />
+		<class name="com.ibm.mega.test.platform.DocsContentSourcesCreateWfsFolderTestNG" />
+		
+		<class name="com.ibm.mega.test.platform.STO_44775_MEGDeviceView" />
+		<class name="com.ibm.mega.test.platform.STO_44777_CEDeviceSummaryView" />
+		<class name="com.ibm.mega.test.gateway.validations.STO_44779_VerifyGatewayWatch" />
+		<class name="com.ibm.mega.test.gateway.validations.STO_44781_VerifyGatewayPropFile" />
+		<class name="com.ibm.mega.test.gateway.validations.STO_49147_VerifyGatewayWebService" />
+		<class name="com.ibm.mega.test.platform.STO_49145_CEDeviceEGView" /> 
+		
+    </classes>
+	
+  </test> 
+  
+
+
+</suite>  
+
+
+

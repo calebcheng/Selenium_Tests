@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<suite name="Sanity And Confidence Suite">
+
+  <listeners>
+	<listener class-name="com.ibm.mega.test.framework.TestNGReportGenerator" />
+	<listener class-name="com.ibm.mega.test.framework.TestCaseListener" />
+	<listener class-name="com.ibm.mega.test.framework.TestMethodRetryListener" />
+  </listeners>
+
+  <parameter name="suiteEnv" value="ENVIRONMENT_PROPERTIES_FOLDER" />
+  <parameter name="suiteDesc" value="Enter your description of the suite here, e.g IQ2 2.90 regression"/>
+  <parameter name="uploadReport" value="false" />
+  <parameter name="confirmBeforeUpload" value="false" />
+  
+  <test name="Sanity" parallel="classes">
+  
+    <classes>
+		
+		<class name="com.ibm.mega.test.platform.STO_44775_MEGDeviceView" />
+		<class name="com.ibm.mega.test.platform.STO_44777_CEDeviceSummaryView" />
+		<class name="com.ibm.mega.test.platform.STO_49145_CEDeviceEGView" /> 
+		<class name="com.ibm.mega.test.gateway.validations.STO_44779_VerifyGatewayWatch" />
+		<class name="com.ibm.mega.test.gateway.validations.STO_44781_VerifyGatewayPropFile" />
+		<class name="com.ibm.mega.test.gateway.validations.STO_49147_VerifyGatewayWebService" />
+		<class name="com.ibm.mega.test.platform.STO_52014_VerifyWFSSource" />
+		<class name="com.ibm.mega.test.platform.STO_52015_VerifySPSource" />
+		
+    </classes>
+	
+  </test> 
+  
+   <test name="Confidence" >
+	
+    <classes>
+		
+		<class name="com.ibm.mega.test.gateway.STO_44782_ChangeGwyAuthTTL" />
+		<class name="com.ibm.mega.test.platform.STO_44775_MEGDeviceView" />
+		<class name="com.ibm.mega.test.platform.STO_44777_CEDeviceSummaryView" />
+		<class name="com.ibm.mega.test.platform.STO_49145_CEDeviceEGView" /> 
+		<class name="com.ibm.mega.test.gateway.validations.STO_44779_VerifyGatewayWatch" />
+		<class name="com.ibm.mega.test.gateway.validations.STO_44781_VerifyGatewayPropFile" />
+		<class name="com.ibm.mega.test.gateway.validations.STO_49147_VerifyGatewayWebService" />
+		
+    </classes>
+	
+  </test> 
+  
+
+  
+
+</suite>  
+
+
+

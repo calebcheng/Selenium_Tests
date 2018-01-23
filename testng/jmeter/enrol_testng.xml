@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<suite name="Enrol Suite">
+
+  <listeners>
+	<!--<listener class-name="com.ibm.mega.test.framework.TestNGReportGenerator" />-->
+	<listener class-name="com.ibm.mega.test.framework.TestCaseListener" />
+  </listeners>
+
+<!-- Replace ENVIRONMENT_PROPERTIES_FOLDER with the environment properties folder corresponding to  the 
+	environment to be used for the test execution -->
+	
+  <parameter name="suiteEnv" value="iq3_automation" />
+  <parameter name="suiteDesc" value="Automated Enrollment"/>
+  <parameter name="uploadReport" value="false"/>
+  <parameter name="confirmBeforeUpload" value="true"/>
+  
+  <test name="Enrol Devices">
+  
+    <classes>
+
+		<class name="com.ibm.mega.test.device.EnrolDevices" />
+		<!-- <class name="com.ibm.mega.test.device.WindowsFileShareValidation" /> -->
+		
+    </classes>
+	
+  </test> 
+  
+  
+
+  
+
+</suite>  
+
+
+

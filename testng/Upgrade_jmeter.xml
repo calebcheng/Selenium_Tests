@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<suite name="Upgrade Suite" configfailurepolicy="continue">
+
+  <listeners>
+	<listener class-name="com.ibm.mega.test.framework.TestNGReportGenerator" />
+	<listener class-name="com.ibm.mega.test.framework.TestCaseListener" />
+	<listener class-name="com.ibm.mega.test.framework.TestMethodRetryListener" />
+  </listeners>
+
+  <parameter name="suiteEnv" value="ENVIRONMENT_PROPERTIES_FOLDER" />
+  <parameter name="suiteDesc" value="Enter your description of the suite here, e.g IQ2 2.90 regression"/>
+  <parameter name="uploadReport" value="false" />
+  <parameter name="confirmBeforeUpload" value="false" />
+  	
+ 	<test name="MEG Upgrade">
+ 		<classes>
+ 			<class name="com.ibm.mega.test.gateway.general.STO_49616_UpgradeGateway" />
+ 		</classes>
+ 	</test>
+  
+   <test name="MEG Upgrade Validations" parallel="classes">
+    <classes>
+		
+		<class name="com.ibm.mega.test.platform.STO_44775_MEGDeviceView" />
+		<class name="com.ibm.mega.test.platform.STO_44777_CEDeviceSummaryView" />
+		<class name="com.ibm.mega.test.platform.STO_49145_CEDeviceEGView" /> 
+		<class name="com.ibm.mega.test.gateway.validations.STO_44779_VerifyGatewayWatch" />
+		<class name="com.ibm.mega.test.gateway.validations.STO_44781_VerifyGatewayPropFile" />
+		<class name="com.ibm.mega.test.gateway.validations.STO_49147_VerifyGatewayWebService" />
+		<class name="com.ibm.mega.test.gateway.validations.STO_61423_ValidateWebDavServerStatus" />
+		<class name="com.ibm.mega.test.platform.STO_52014_VerifyWFSSource" />
+		<class name="com.ibm.mega.test.platform.STO_52015_VerifySPSource" />
+		
+    </classes>
+  </test> 
+ 
+  <test name="MEG Upgrade Device Resource Sites">
+  	<classes>
+  	
+  		<class name="com.ibm.mega.test.device.STO_66749_ResBasicAuth_CERT" />
+  		<class name="com.ibm.mega.test.device.STO_66752_ResBasicAuth_MAAS" />
+  		<class name="com.ibm.mega.test.device.STO_66230_ResBasicAuth_UP" />
+  		
+  		<class name="com.ibm.mega.test.device.STO_67410_ResCertificateAuth_CERT" />
+  		<class name="com.ibm.mega.test.device.STO_67411_ResCertificateAuth_MAAS" />
+  		<class name="com.ibm.mega.test.device.STO_67409_ResCertificateAuth_UP" />
+  		
+  		<class name="com.ibm.mega.test.device.STO_66764_ResDigestAuth_CERT" />
+  		<class name="com.ibm.mega.test.device.STO_66770_ResDigestAuth_MAAS" />
+  		<class name="com.ibm.mega.test.device.STO_66757_ResDigestAuth_UP" />
+  		<class name="com.ibm.mega.test.device.STO_67317_ResKerberosAuth_CERT" />
+  		<class name="com.ibm.mega.test.device.STO_67318_ResKerberosAuth_MAAS" />
+  		<class name="com.ibm.mega.test.device.STO_67316_ResKerberosAuth_UP" />
+  		<class name="com.ibm.mega.test.device.STO_67314_ResNegotiateAuth_CERT" />
+  		<class name="com.ibm.mega.test.device.STO_67315_ResNegotiateAuth_MAAS" />
+  		<class name="com.ibm.mega.test.device.STO_67313_ResNegotiateAuth_UP" />
+  		<class name="com.ibm.mega.test.device.STO_67413_ResNoAuthSite_CERT" />
+  		<class name="com.ibm.mega.test.device.STO_67414_ResNoAuthSite_MAAS" />
+  		<class name="com.ibm.mega.test.device.STO_67412_ResNoAuthSite_UP" />
+  		<class name="com.ibm.mega.test.device.STO_66793_ResNTLMtAuth_CERT" />
+  		<class name="com.ibm.mega.test.device.STO_66794_ResNTLMtAuth_MAAS" />
+  		<class name="com.ibm.mega.test.device.STO_66789_ResNTLMtAuth_UP" />
+  		
+  	</classes>
+  </test>
+  
+  <test name="MEG Upgrade Device WFS/SP">
+  	<classes>
+  
+  		<class name="com.ibm.mega.test.wfs.STO_71203_WebDAV_RemoteFolder_SMB1_UP"/>
+  		<class name="com.ibm.mega.test.wfs.STO_71204_WebDAV_RemoteFolder_SMB1_CERT"/>
+  		<class name="com.ibm.mega.test.wfs.STO_71205_WebDAV_RemoteFolder_SMB1_MAAS"/>
+  		
+  		<class name="com.ibm.mega.test.wfs.STO_71206_WebDAV_RemoteFolder_SMB2_UP"/>
+  		<class name="com.ibm.mega.test.wfs.STO_71207_WebDAV_RemoteFolder_SMB2_CERT"/>
+  		<class name="com.ibm.mega.test.wfs.STO_71208_WebDAV_RemoteFolder_SMB2_MAAS"/>
+  		
+  		<class name="com.ibm.mega.test.device.STO_71209_SharepointReadWrite_UP" />
+  		<class name="com.ibm.mega.test.device.STO_71210_SharepointReadWrite_CERT" />
+  		<class name="com.ibm.mega.test.device.STO_71211_SharepointReadWrite_MAAS" />
+		
+  	</classes>
+  	</test> 
+  
+
+</suite>  
+
+
+

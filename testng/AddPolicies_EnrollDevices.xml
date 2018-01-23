@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<suite name="Policies and Devices Suite">
+
+  <listeners>
+	<listener class-name="com.ibm.mega.test.framework.TestNGReportGenerator" />
+	<listener class-name="com.ibm.mega.test.framework.TestCaseListener" />
+	<listener class-name="com.ibm.mega.test.framework.TestMethodRetryListener" />
+  </listeners>
+	
+  <parameter name="suiteEnv" value="ENVIRONMENT_PROPERTIES_FOLDER" />
+  <parameter name="suiteDesc" value="Enter your description of the suite here, e.g IQ2 2.90 regression"/>
+	<parameter name="uploadReport" value="false" />
+	<parameter name="confirmBeforeUpload" value="false" />
+  
+  <test name="Create Policies and Enroll Devices">
+  
+    <classes>
+		
+		<class name="com.ibm.mega.test.platform.CreatePolicies" />
+		<class name="com.ibm.mega.test.device.EnrolDevices" />
+		
+    </classes>
+	
+  </test> 
+  
+
+
+</suite>  
+
+
+
