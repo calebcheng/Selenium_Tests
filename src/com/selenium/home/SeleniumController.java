@@ -23,18 +23,17 @@ public class SeleniumController {
 
 	private WebDriver driver;
 	
-//	static {
-//		System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
-//	}
+	static {
+		System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
+	}
 
 	public SeleniumController(String url) {
 
-		System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
+//		System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
 		driver = new ChromeDriver();
 		
 		driver.get(url);
 		
-		System.out.println("SHould open browser");
 		LOG.info("Staring URL : {}", url);
 	}
 
@@ -59,7 +58,6 @@ public class SeleniumController {
 			System.out.println("Count not find element");
 			throw new ElementNotFoundException(null, null, null);
 		} 
-		System.out.println("Found elelment" + element);
 		return element;
 
 	}

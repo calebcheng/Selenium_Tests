@@ -67,20 +67,16 @@ public class assetInfoValidation {
 
 	@Test(priority=1)
 	public void validateAssetDetails() {
-		System.out.println("Starting validateAssetDetails");
 		for(Properties p : propertyFiles) {
-			System.out.println("Reading propert files");
-			System.out.println(sc.findElement(By.xpath("//*[@id='Asset']")));
+			
 			sc.findElement(By.xpath("//*[@id='Asset']")).click();
 			sc.findElement(By.xpath("//*[@id='" + p.getProperty(Constant.PROPERTY_IP) + "']")).click();
-			System.out.println(1);
 			ArrayList<String> expected = new ArrayList<String>(Arrays.asList("Hostname", "Processor", "IP", "Creation Date"));
 			ArrayList<String> actual = new ArrayList<String>();
 
 			for(int i =1 ; i < 5; i++) {
 				actual.add(sc.findElement(By.xpath("//*[@id=\"asset_header\"]/thead/tr/th[" + i + "]")).getText());
 			}
-			System.out.println(2);
 			sa.assertTrue(verifyContent(expected, actual), "Header String does not match the expected value");
 			
 			expected = new ArrayList<String>(Arrays.asList(p.getProperty(Constant.PROPERTY_HOSTNAME), p.getProperty(Constant.PORPERTY_PROCESSOR), p.getProperty(Constant.PROPERTY_IP), p.getProperty(Constant.PROPERTY_CREATION_DATE)));
@@ -88,12 +84,9 @@ public class assetInfoValidation {
 			for(int i =1 ; i < 5; i++) {
 				actual.add(sc.findElement(By.xpath("//*[@id=\"asset_value\"]/tbody/tr[1]/td[" + i + "]")).getText());
 			}
-			System.out.println(3);
 			sa.assertTrue(verifyContent(expected, actual), "Asset detials does not match the expected value. Asset IP : " + p.getProperty(Constant.PROPERTY_IP));
-			System.out.println(4);
 			sc.findElement(By.xpath("/html/body/div[2]/div/div/div/div/a[2]")).click(); // Back button
 		}
-		System.out.println(5);
 		sa.assertAll();
 
 		

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
@@ -63,7 +64,7 @@ public class DeleteAsset {
 	}
 
 	@Test(priority=1)
-	public void deleteAsset() {
+	public void deleteAsset() throws InterruptedException {
 		
 		for(Properties p : propertyFiles) {
 			LOG.info("Navigate to Asset tab");
@@ -78,6 +79,8 @@ public class DeleteAsset {
 					Boolean isPresent = sc.getDriver().findElements(By.xpath("//*[@id='" + p.getProperty(Constant.PROPERTY_IP) + "']")).size() > 0;
 					sa.assertFalse(isPresent, "Check if element still exists");
 			}
+			
+			TimeUnit.SECONDS.sleep(3);
 			
 		}
 		
