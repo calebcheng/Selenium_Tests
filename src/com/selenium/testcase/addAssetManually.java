@@ -46,6 +46,7 @@ public class addAssetManually {
 			sc = new SeleniumController(propertyFiles.get(0).getProperty(Constant.PROPERTY_CONSOLE_ADDRESS));
 			LOG.info("Browser is opened");
 		} else {
+			LOG.error("No property file found. Test terminated");
 			Assert.assertTrue(false, "No property file found");
 		}
 		
