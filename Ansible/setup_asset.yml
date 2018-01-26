@@ -1,0 +1,36 @@
+---
+- hosts: webservers
+  vars:
+    http_port: 80
+    max_clients: 200
+    office_host_addr: http://9.190.90.95:3000
+    home_host_addr: http://192.168.0.13:3000
+    bluemix_addr: https://testcaleb.mybluemix.net
+    
+  remote_user: caleb
+  tasks:
+  - name: checkout git repo
+    git:
+        repo: 'git@github.com:calebcheng/python_project.git'
+        dest: /home/caleb/develop/assetController/python_project
+    
+  - name: execute sendPost.py
+    command: python sendPost.py {{home_host_addr}}
+    args:
+        chdir: /home/caleb/develop/assetController/python_project
+        
+  
+  - name: copy property file from remote host to the local test environment
+    fetch: 
+        src: '/home/caleb/develop/assetController/python_project/{{ansible_default_ipv4.address}}.properties'
+        dest:  '/Users/lizhughes/eclipse-workspace/workspace2/Selenium_Tests/testdata/assetInfoValidation/'
+        flat: yes
+        
+  - name: copy another property file from remote host to the local test environment        
+    fetch: 
+        src: '/home/caleb/develop/assetController/python_project/{{ansible_default_ipv4.address}}.properties'
+        dest:  '/Users/lizhughes/eclipse-workspace/workspace2/Selenium_Tests/testdata/manualAsset/'
+        flat: yes
+#   
+    
+#/Users/lizhughes/eclipse-workspace/workspace1/SeleniumProject/Selenium Test/testdata/assetInfoValidation/'

@@ -38,13 +38,11 @@ public class assetInfoValidation {
 	
 	@BeforeClass
 	public void initClass() throws IOException {
-		System.out.println("Start testing");
+		LOG.info("Start testing");
 		loadProperyFile();
-		System.out.println("Finished loaded property file");
 		if(propertyFiles.size() > 0) {
-			System.out.println("Ready to open browser");
 			sc = new SeleniumController(propertyFiles.get(0).getProperty(Constant.PROPERTY_CONSOLE_ADDRESS));
-			System.out.println("Browser in opened");
+			LOG.info("Browser in opened");
 		} else {
 			Assert.assertTrue(false, "No property file found");
 		}
@@ -84,7 +82,7 @@ public class assetInfoValidation {
 			for(int i =1 ; i < 5; i++) {
 				actual.add(sc.findElement(By.xpath("//*[@id=\"asset_value\"]/tbody/tr[1]/td[" + i + "]")).getText());
 			}
-			sa.assertTrue(verifyContent(expected, actual), "Asset detials does not match the expected value. Asset IP : " + p.getProperty(Constant.PROPERTY_IP));
+			sa.assertTrue(verifyContent(expected, actual), "One or more Asset detials does not match with the expected value. The Asset's IP is : " + p.getProperty(Constant.PROPERTY_IP));
 			sc.findElement(By.xpath("/html/body/div[2]/div/div/div/div/a[2]")).click(); // Back button
 		}
 		sa.assertAll();
@@ -99,14 +97,13 @@ public class assetInfoValidation {
 			
 			if(!expectedStr.equals(actualStr)) {
 				LOG.error("Not match!!. Expected value : {}, Actual value : {}", expectedStr, actualStr);
-				System.out.println(expectedStr + actualStr);
+				sa.assertTrue(false, "Acrual value : " + actualStr + " does not match with expected value : " + expectedStr);
 				return false;
 			} else if(expected == null || actual == null){
 				LOG.error("Null pointer detected!!");
-				
+				sa.assertTrue(false, "Null pointer detected!!");
 				return false;
 			} else {
-				System.out.println("MATCH" + expectedStr + actualStr);
 				LOG.info("Value matched. Expected value : {}, Actual value : {}", expectedStr, actualStr);
 			}
 		}

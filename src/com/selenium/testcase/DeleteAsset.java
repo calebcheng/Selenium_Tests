@@ -77,6 +77,12 @@ public class DeleteAsset {
 			if(sc.findElement(By.xpath("//*[@id='masthead']/div[2]/div/div/div/div/h3")) != null) { //Asset details String
 				
 					Boolean isPresent = sc.getDriver().findElements(By.xpath("//*[@id='" + p.getProperty(Constant.PROPERTY_IP) + "']")).size() > 0;
+					if(isPresent) {
+						LOG.error("Element with IP address : {} still exists. Deletion Test fails", p.getProperty(Constant.PROPERTY_IP));
+					} else {
+						LOG.info("Element with IP address : {} does not exist. Test passes", p.getProperty(Constant.PROPERTY_IP));
+					}
+					
 					sa.assertFalse(isPresent, "Check if element still exists");
 			}
 			

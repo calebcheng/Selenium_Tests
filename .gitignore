@@ -8,4 +8,5 @@ logs
 test-output
 
 testdata/assetInfoValidation/*.properties
+testdata/manualAsset/*.properties
 

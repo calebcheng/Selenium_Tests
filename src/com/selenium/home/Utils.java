@@ -3,7 +3,14 @@ package com.selenium.home;
 import java.io.File;
 import java.util.ArrayList;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.selenium.testcase.addAssetManually;
+
 public class Utils {
+	
+	public static final Logger LOG = LoggerFactory.getLogger(Utils.class);
 
 	public static ArrayList<String> listAllFileInFolder(String folderPath) {
 
@@ -14,13 +21,13 @@ public class Utils {
 		for (int i = 0; i < listOfFiles.length; i++) {
 			if (listOfFiles[i].isFile()) {
 				String fileName = listOfFiles[i].getName();
-				System.out.println("File " + fileName);
+//				System.out.println("File " + fileName);
 				if(fileName.endsWith(".properties")) {
 					fileNames.add(fileName);
-					System.out.println(fileName + " added to Array");
+					LOG.info(fileName + " added to Array");
 				}
 			} else if (listOfFiles[i].isDirectory()) {
-				System.out.println("Directory " + listOfFiles[i].getName());
+				LOG.info("Directory " + listOfFiles[i].getName());
 			}
 		}
 		

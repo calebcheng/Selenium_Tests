@@ -13,6 +13,7 @@ public class Constant {
 	public static final String PROPERTY_IP = "IP";
 	
 	public static final String ASSET_INFO_VALIDATION_FOLDER_PATH = "testdata/assetInfoValidation";
+	public static final String MANUAL_ASSET_FOLDER_PATH = "testdata/manualAsset";
 
 
 }

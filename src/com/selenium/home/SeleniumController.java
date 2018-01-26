@@ -31,7 +31,7 @@ public class SeleniumController {
 
 //		System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
 		driver = new ChromeDriver();
-		
+		driver.manage().window().fullscreen();
 		driver.get(url);
 		
 		LOG.info("Staring URL : {}", url);
