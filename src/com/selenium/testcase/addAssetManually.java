@@ -49,9 +49,14 @@ public class addAssetManually {
 			LOG.error("No property file found. Test terminated");
 			Assert.assertTrue(false, "No property file found");
 		}
-		
+		signIn();
 	}
 	
+	private void signIn() {
+		//*[@id="signIn_userName"]//*[@id="signIn_password"]
+		sc.findElement(By.id("signIn_userName")).sendKeys("admin");;
+		sc.findElement(By.id("signIn_password")).sendKeys("admin");;
+	}
 	
 	private void loadProperyFile() throws IOException {
 		
@@ -71,17 +76,17 @@ public class addAssetManually {
 		for(Properties p : propertyFiles) {
 			//*[@id="addAssetBtn"]
 			sc.findElement(By.xpath("//*[@id='Asset']")).click();
-			TimeUnit.SECONDS.sleep(3);
+			TimeUnit.SECONDS.sleep(1);
 			sc.findElement(By.xpath("//*[@id='addAssetBtn']")).click();
-			TimeUnit.SECONDS.sleep(3);
+			TimeUnit.SECONDS.sleep(1);
 			sc.findElement(By.xpath("//*[@id='addAssetForm']/div/div/div[2]/table/tbody/tr[1]/td[2]/input")).sendKeys(p.getProperty(Constant.PROPERTY_HOSTNAME));
-			TimeUnit.SECONDS.sleep(3);
+			TimeUnit.SECONDS.sleep(1);
 			sc.findElement(By.xpath("//*[@id='addAssetForm']/div/div/div[2]/table/tbody/tr[2]/td[2]/input")).sendKeys(p.getProperty(Constant.PORPERTY_PROCESSOR));
-			TimeUnit.SECONDS.sleep(3);
+			TimeUnit.SECONDS.sleep(1);
 			sc.findElement(By.xpath("//*[@id='addAssetForm']/div/div/div[2]/table/tbody/tr[3]/td[2]/input")).sendKeys(p.getProperty(Constant.PROPERTY_IP));
-			TimeUnit.SECONDS.sleep(3);
+			TimeUnit.SECONDS.sleep(1);
 			sc.findElement(By.xpath("//*[@id='addAssetForm']/div/div/div[2]/table/tbody/tr[4]/td[2]/input")).sendKeys(p.getProperty(Constant.PROPERTY_CREATION_DATE));
-			TimeUnit.SECONDS.sleep(3);
+			TimeUnit.SECONDS.sleep(1);
 			sc.findElement(By.xpath("//*[@id='addAssetForm']/input")).click();
 			
 			
@@ -93,6 +98,7 @@ public class addAssetManually {
 
 	@Test(priority=2)
 	public void validateAssetDetails() throws InterruptedException {
+		LOG.info("Start validating the asset");
 		for(Properties p : propertyFiles) {
 			
 			sc.findElement(By.xpath("//*[@id='Asset']")).click();
@@ -121,6 +127,7 @@ public class addAssetManually {
 	}
 	
 	private boolean verifyContent(ArrayList<String> expected, ArrayList<String> actual) {
+		LOG.info("Verify the content of the asset");
 		for(int i = 0; i < expected.size(); i++ ) {
 			String expectedStr = expected.get(i);
 			String actualStr = actual.get(i);

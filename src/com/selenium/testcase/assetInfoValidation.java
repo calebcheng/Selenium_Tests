@@ -46,7 +46,13 @@ public class assetInfoValidation {
 		} else {
 			Assert.assertTrue(false, "No property file found");
 		}
-		
+		signIn();
+	}
+	
+	private void signIn() {
+		//*[@id="signIn_userName"]//*[@id="signIn_password"]
+		sc.findElement(By.id("signIn_userName")).sendKeys("admin");;
+		sc.findElement(By.id("signIn_password")).sendKeys("admin");;
 	}
 	
 	
@@ -91,6 +97,7 @@ public class assetInfoValidation {
 	}
 	
 	private boolean verifyContent(ArrayList<String> expected, ArrayList<String> actual) {
+		LOG.info("Verify the content of the asset");
 		for(int i = 0; i < expected.size(); i++ ) {
 			String expectedStr = expected.get(i);
 			String actualStr = actual.get(i);

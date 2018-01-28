@@ -46,8 +46,16 @@ public class DeleteAsset {
 		} else {
 			Assert.assertTrue(false, "No property file found");
 		}
-		
+		signIn();
 	}
+	
+	private void signIn() {
+		//*[@id="signIn_userName"]//*[@id="signIn_password"]
+		LOG.info("Sign in to Console");
+		sc.findElement(By.id("signIn_userName")).sendKeys("admin");;
+		sc.findElement(By.id("signIn_password")).sendKeys("admin");;
+	}
+	
 	
 	
 	private void loadProperyFile() throws IOException {
@@ -65,7 +73,7 @@ public class DeleteAsset {
 
 	@Test(priority=1)
 	public void deleteAsset() throws InterruptedException {
-		
+		LOG.info("Going to delete the asset");
 		for(Properties p : propertyFiles) {
 			LOG.info("Navigate to Asset tab");
 			sc.findElement(By.xpath("//*[@id='Asset']")).click();
@@ -73,7 +81,7 @@ public class DeleteAsset {
 
 
 			sc.findElement(By.xpath("/html/body/div[2]/div/div/div/div/a[1]")).click(); // Delete button
-			
+			LOG.info("Delete Button clicked");
 			if(sc.findElement(By.xpath("//*[@id='masthead']/div[2]/div/div/div/div/h3")) != null) { //Asset details String
 				
 					Boolean isPresent = sc.getDriver().findElements(By.xpath("//*[@id='" + p.getProperty(Constant.PROPERTY_IP) + "']")).size() > 0;

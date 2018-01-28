@@ -24,7 +24,7 @@ public class Utils {
 //				System.out.println("File " + fileName);
 				if(fileName.endsWith(".properties")) {
 					fileNames.add(fileName);
-					LOG.info(fileName + " added to Array");
+					LOG.info(fileName + " is added to ArrayList");
 				}
 			} else if (listOfFiles[i].isDirectory()) {
 				LOG.info("Directory " + listOfFiles[i].getName());
