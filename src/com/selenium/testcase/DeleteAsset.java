@@ -4,7 +4,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -18,7 +17,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import com.selenium.home.Constant;
 import com.selenium.home.SeleniumController;
 import com.selenium.home.Utils;
@@ -103,24 +101,6 @@ public class DeleteAsset {
 		
 	}
 	
-	private boolean verifyContent(ArrayList<String> expected, ArrayList<String> actual) {
-		for(int i = 0; i < expected.size(); i++ ) {
-			String expectedStr = expected.get(i);
-			String actualStr = actual.get(i);
-			
-			if(!expectedStr.equals(actualStr)) {
-				LOG.error("Not match!!. Expected value : {}, Actual value : {}", expectedStr, actualStr);
-				return false;
-			} else if(expected == null || actual == null){
-				LOG.error("Null pointer detected!!");
-				return false;
-			} else {
-				LOG.info("Value matched. Expected value : {}, Actual value : {}", expectedStr, actualStr);
-			}
-		}
-		
-		return true;
-	}
 	
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {

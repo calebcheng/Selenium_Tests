@@ -39,7 +39,7 @@ public class addAssetManually {
 	
 	@BeforeClass
 	public void initClass() throws IOException {
-		LOG.info("Start testing");
+		LOG.info("Start testing : addAssetManually");
 		loadProperyFile();
 		
 		if(propertyFiles.size() > 0) {
@@ -109,14 +109,14 @@ public class addAssetManually {
 			for(int i =1 ; i < 5; i++) {
 				actual.add(sc.findElement(By.xpath("//*[@id=\"asset_header\"]/thead/tr/th[" + i + "]")).getText());
 			}
-			sa.assertTrue(verifyContent(expected, actual), "Header String does not match the expected value");
+			verifyContent(expected, actual);
 			
 			expected = new ArrayList<String>(Arrays.asList(p.getProperty(Constant.PROPERTY_HOSTNAME), p.getProperty(Constant.PORPERTY_PROCESSOR), p.getProperty(Constant.PROPERTY_IP), p.getProperty(Constant.PROPERTY_CREATION_DATE)));
 			actual = new ArrayList<String>();
 			for(int i =1 ; i < 5; i++) {
 				actual.add(sc.findElement(By.xpath("//*[@id=\"asset_value\"]/tbody/tr[1]/td[" + i + "]")).getText());
 			}
-			sa.assertTrue(verifyContent(expected, actual), "Asset detials does not match the expected value. Asset IP : " + p.getProperty(Constant.PROPERTY_IP));
+			verifyContent(expected, actual);
 			sc.findElement(By.xpath("/html/body/div[2]/div/div/div/div/a[2]")).click(); // Back button
 			
 			TimeUnit.SECONDS.sleep(3);
@@ -126,7 +126,7 @@ public class addAssetManually {
 		
 	}
 	
-	private boolean verifyContent(ArrayList<String> expected, ArrayList<String> actual) {
+	private void verifyContent(ArrayList<String> expected, ArrayList<String> actual) {
 		LOG.info("Verify the content of the asset");
 		for(int i = 0; i < expected.size(); i++ ) {
 			String expectedStr = expected.get(i);
@@ -134,17 +134,18 @@ public class addAssetManually {
 			
 			if(!expectedStr.equals(actualStr)) {
 				LOG.error("Not match!!. Expected value : {}, Actual value : {}", expectedStr, actualStr);
-				return false;
+				sa.assertTrue(false, "Acrual value : " + actualStr + " does not match with expected value : " + expectedStr);
+				
 			} else if(expected == null || actual == null){
 				LOG.error("Null pointer detected!!");
+				sa.assertTrue(false, "Null pointer detected!!");
 				
-				return false;
 			} else {
 				LOG.info("Value matched. Expected value : {}, Actual value : {}", expectedStr, actualStr);
 			}
 		}
 		
-		return true;
+	
 	}
 	
 	@AfterClass(alwaysRun = true)
