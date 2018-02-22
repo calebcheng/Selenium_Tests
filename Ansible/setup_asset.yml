@@ -4,7 +4,7 @@
     http_port: 80
     max_clients: 200
     office_host_addr: http://9.190.90.95:3000
-    home_host_addr: http://192.168.0.13:3000
+    home_host_addr: http://192.168.0.4:3000
     bluemix_addr: https://testcaleb.mybluemix.net
     
   remote_user: caleb

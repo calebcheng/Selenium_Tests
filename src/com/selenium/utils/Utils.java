@@ -1,4 +1,4 @@
-package com.selenium.home;
+package com.selenium.utils;
 
 import java.io.File;
 import java.util.ArrayList;

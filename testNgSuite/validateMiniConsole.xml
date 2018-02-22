@@ -4,9 +4,6 @@
 
 <suite name="Mini Console test suites">
 
-	<parameter name="suiteEnv" value="ENVIRONMENT_PROPERTIES_FOLDER" />
-
-
 	<test name="Validate assets">
 
 		<classes>

@@ -1,4 +1,4 @@
-package com.selenium.home;
+package com.selenium.controller;
 
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 
 import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import com.gargoylesoftware.htmlunit.javascript.host.Element;
+import com.selenium.utils.Constant;
 
 public class SeleniumController {
 
@@ -29,9 +30,9 @@ public class SeleniumController {
 
 	public SeleniumController(String url) {
 
-//		System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
 		driver = new ChromeDriver();
 		driver.manage().window().fullscreen();
+		driver.manage().timeouts().implicitlyWait(Constant.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		driver.get(url);
 		
 		LOG.info("Staring URL : {}", url);
@@ -43,8 +44,8 @@ public class SeleniumController {
 
 	public WebElement findElement(By by) {
 		
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(30, TimeUnit.SECONDS)
-				.pollingEvery(5, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Constant.FLUENT_WAIT, TimeUnit.SECONDS)
+				.pollingEvery(1, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
 
 		WebElement element = (WebElement) wait.until(new Function<WebDriver, WebElement>() {
 
