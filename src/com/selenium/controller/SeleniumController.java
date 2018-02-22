@@ -8,14 +8,11 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.gargoylesoftware.htmlunit.ElementNotFoundException;
-import com.gargoylesoftware.htmlunit.javascript.host.Element;
 import com.selenium.utils.Constant;
 
 public class SeleniumController {
@@ -57,7 +54,7 @@ public class SeleniumController {
 		
 		if(element == null) {
 			System.out.println("Count not find element");
-			throw new ElementNotFoundException(null, null, null);
+			throw new NoSuchElementException(null);
 		} 
 		return element;
 

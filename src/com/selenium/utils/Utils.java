@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.selenium.testcase.addAssetManually;
-
 public class Utils {
 	
 	public static final Logger LOG = LoggerFactory.getLogger(Utils.class);
