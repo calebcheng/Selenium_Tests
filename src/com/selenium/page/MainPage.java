@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 
 import com.selenium.utils.Constant;
 
+
+
 public class MainPage{
 	
 	public static final Logger LOG = LoggerFactory.getLogger(MainPage.class);
@@ -23,7 +25,7 @@ public class MainPage{
 	@FindBy(xpath="/html/body/header/div/div/a")
 	WebElement homeTab;
 	
-	@FindBy(id="asset")
+	@FindBy(id="Asset")
 	WebElement assetTab;
 	
 	@FindBy(id="signIn_userName")

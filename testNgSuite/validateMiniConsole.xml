@@ -9,7 +9,7 @@
 		<classes>
 			<class name="com.selenium.testcase.assetInfoValidation" />
 			<class name="com.selenium.testcase.DeleteAsset" />
-			<class name="com.selenium.testcase.addAssetManually" />
+			<class name="com.selenium.testcase.addAssetManually" /> 
 		</classes>
 	</test>
 </suite>  

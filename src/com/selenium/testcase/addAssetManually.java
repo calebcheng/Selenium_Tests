@@ -18,6 +18,7 @@ public class addAssetManually extends ConsoleTestcase{
 	
 	@Test(priority=1)
 	public void addAsset() throws InterruptedException {
+		LOG.info("Start adding assets");
 		
 		mainPage.clickAssetTab();
 		assetListViewPage.verifyHeader();
@@ -34,6 +35,7 @@ public class addAssetManually extends ConsoleTestcase{
 
 	@Test(priority=2)
 	public void validateAssetDetails() throws InterruptedException {
+		LOG.info("Start validating Assset details");
 		
 		mainPage.clickAssetTab();
 		assetListViewPage.verifyHeader();

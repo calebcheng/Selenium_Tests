@@ -11,12 +11,12 @@ public class assetInfoValidation extends ConsoleTestcase{
 	
 	@Test(priority=1)
 	public void validateAssetDetails() {
+		LOG.info("Start validating Assset details");
 		
 		mainPage.clickAssetTab();
 		assetListViewPage.verifyHeader();
 		
 		assetDetailVerification();
-
 		sa.assertAll();
 	}
 }

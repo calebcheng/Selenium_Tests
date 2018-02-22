@@ -15,7 +15,8 @@ public class DeleteAsset extends ConsoleTestcase {
 
 	@Test(priority = 1)
 	public void deleteAsset() {
-		LOG.info("Deleting Assets");
+		LOG.info("Start deleting Assets");
+		
 		mainPage.clickAssetTab();
 
 		for (Properties p : propertyFiles) {
@@ -27,7 +28,8 @@ public class DeleteAsset extends ConsoleTestcase {
 			assetDetailPage.clickDeleteButton();
 			
 			assetListViewPage.verifyHeader();
-																									
+					
+			// Verify if the asset is deleted 
 			Boolean isPresent = driver.findElements(By.xpath("//*[@id='" + p.getProperty(Constant.PROPERTY_IP) + "']")).size() > 0;
 			if (isPresent) {
 				LOG.error("Element with IP address : {} still exists. Test fails",

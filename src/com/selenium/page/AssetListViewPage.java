@@ -46,11 +46,10 @@ public class AssetListViewPage {
 		addButton.click();
 	}
 	
-	public boolean verifyHeader() {
+	public void verifyHeader() {
 		LOG.info("Verifying page header: {}", Constant.ASSET_LISTS);
-		dWait.until(ExpectedConditions.textToBePresentInElement(assetLists, Constant.ASSET_LISTS));  //Implicit wait throws exception after 30 sec if elementnot found
-		
-		return true;
+		dWait.until(ExpectedConditions.textToBePresentInElement(assetLists, Constant.ASSET_LISTS)); 
+		LOG.info("Header is found");
 	}
 	
 	
